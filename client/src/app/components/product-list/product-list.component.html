@@ -1,0 +1,31 @@
+<div *ngFor="let product of products" class="card card-body mb-2">
+  <div class="row">
+    <div class="col-md-8">
+      <ul>
+        <li>
+          id: {{product._id}}
+        </li>
+        <li>
+          nombre: {{product.nombre}}
+        </li>
+        <li>
+          marca: {{product.marca}}
+        </li>
+        <li>
+          sabor: {{product.sabor}}
+        </li>
+        <li>
+          cantidad: {{product.cantidad}}
+        </li>
+      </ul>
+      <button (click)="deleteProduct(product._id)" class="btn btn-danger">
+        Delete
+      </button>
+      <button [routerLink]="['/dulces/edit', product._id]" class="btn btn-secondary">
+        Edit
+      </button>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

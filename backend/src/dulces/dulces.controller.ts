@@ -7,18 +7,18 @@ import { UpdateDulceDto } from './dto/update-dulce.dto';
 export class DulcesController {
   constructor(private readonly dulcesService: DulcesService) {}
 
-  @Post()
+  @Post('/create')
   create(@Body() createDulceDto: CreateDulceDto) {
     return this.dulcesService.create(createDulceDto);
   }
 
-  @Get()
+  @Get('/')
   findAll() {
     return this.dulcesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.dulcesService.findOne(+id);
   }
 
@@ -26,15 +26,14 @@ export class DulcesController {
   update(@Param('id') id: string, @Body() updateDulceDto: UpdateDulceDto) {
     return this.dulcesService.update(+id, updateDulceDto);
   }*/
-  @Put(':id')
+  @Put('/update')
   async UpdateDulceDto(
     @Param('id') id: number,
     @Body() updateDulceDto: UpdateDulceDto,
   ) {
     await this.dulcesService.update(id, updateDulceDto);
   }
-
-  @Delete(':id')
+  @Delete('/delete')
   async remove(@Param('id') id: number) {
     await this.dulcesService.delete(id);
   }
