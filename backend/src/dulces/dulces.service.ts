@@ -18,16 +18,16 @@ export class DulcesService {
     return this.dulceRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} dulce`;
+  findOne(_id: number) {
+    return this.dulceRepository.findBy({ _id });
   }
 
-  update(id: number, updateDulceDto: UpdateDulceDto) {
-    return this.dulceRepository.update({ id }, { ...updateDulceDto });
+  update(_id: number, updateDulceDto: UpdateDulceDto) {
+    return this.dulceRepository.update({ _id }, { ...updateDulceDto });
   }
 
-  delete(id: number) {
+  delete(_id: number) {
     //return `This action removes a #${id} dog`;
-    return this.dulceRepository.delete({ id });
+    return this.dulceRepository.delete({ _id });
   }
 }

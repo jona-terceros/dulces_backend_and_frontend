@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <ul>
         <li>
-          id: {{product._id}}
+          id: {{product?._id}}
         </li>
         <li>
           nombre: {{product.nombre}}
@@ -21,11 +21,9 @@
       <button (click)="deleteProduct(product._id)" class="btn btn-danger">
         Delete
       </button>
-      <button [routerLink]="['/dulces/edit', product._id]" class="btn btn-secondary">
+      <button [routerLink]="['/dulces/edit', product?._id]" class="btn btn-secondary">
         Edit
       </button>
-    </div>
-    <div class="col-md-4">
     </div>
   </div>
 </div>

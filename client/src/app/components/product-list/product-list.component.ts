@@ -7,6 +7,7 @@ import { Product } from '../../interfaces/Product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
+
 export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
@@ -23,12 +24,12 @@ export class ProductListComponent implements OnInit {
     );
   }
 
-  deleteProduct(id: number): void {
-    this.productService.deleteProduct(id).subscribe(
-      (res) => {
+  deleteProduct(id: number):void {
+    this.productService.deleteProduct(id)
+      .subscribe(
+      res => {
         console.log(res);
-        this.getProducts();
-      },
+        },
       (err) => console.log(err),
     );
   }

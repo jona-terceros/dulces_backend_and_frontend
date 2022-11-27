@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'dulces/edit/:id',
     component: ProductFormComponent,
-  },
+  }
 ];
 
 @NgModule({

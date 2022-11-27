@@ -1,4 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Put,
+  Query,
+  Res,
+} from '@nestjs/common';
 import { DulcesService } from './dulces.service';
 import { CreateDulceDto } from './dto/create-dulce.dto';
 import { UpdateDulceDto } from './dto/update-dulce.dto';
@@ -28,13 +39,14 @@ export class DulcesController {
   }*/
   @Put('/update')
   async UpdateDulceDto(
-    @Param('id') id: number,
+    @Res() res,
     @Body() updateDulceDto: UpdateDulceDto,
+    @Query('id') id,
   ) {
     await this.dulcesService.update(id, updateDulceDto);
   }
   @Delete('/delete')
-  async remove(@Param('id') id: number) {
+  async remove(@Res() res, @Query('id') id) {
     await this.dulcesService.delete(id);
   }
 }

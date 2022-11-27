@@ -4,7 +4,7 @@ import { Product } from '../interfaces/Product';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService {
   BASE_URL = 'http://localhost:3000';
@@ -15,7 +15,7 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.BASE_URL}/dulces`);
   }
 
-  getProduct(id: string): Observable<Product> {
+  getProduct(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.BASE_URL}/dulces/${id}`);
   }
 
@@ -23,17 +23,14 @@ export class ProductService {
     return this.http.post<Product>(`${this.BASE_URL}/dulces/create`, product);
   }
 
-  deleteProduct(id: number): Observable<Product> {
+  deleteProduct(id: number ): Observable<Product> {
     console.log(id);
     return this.http.delete<Product>(
       `${this.BASE_URL}/dulces/delete?id=${id}`,
     );
   }
 
-  updateProduct(id: string | undefined, product: Product): Observable<Product> {
-    return this.http.put<Product>(
-      `${this.BASE_URL}/dulces/update?id=${id}`,
-      product,
-    );
+  updateProduct(id: number | undefined, product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.BASE_URL}/dulces/update?id=${id}`, product);
   }
 }

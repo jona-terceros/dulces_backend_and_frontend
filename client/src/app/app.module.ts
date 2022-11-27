@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    ProductListComponent,
     ProductFormComponent,
+    ProductListComponent,
+    NavbarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
